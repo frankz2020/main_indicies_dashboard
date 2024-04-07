@@ -59,7 +59,32 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Example of a responsive design adjustment */
+/* Button container styles */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; /* Adjust as needed */
+  margin-top: 5px; /* Adjust the margin as needed */
+}
+
+/* Button styles */
+.download-button {
+  font-family: 'Arial', sans-serif; /* Choose your font */
+  font-size: 16px; /* Adjust the font size */
+  color: white; /* Text color */
+  background-color: #B1191A; /* Button color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #831825; /* Slightly darker shade for hover effect */
+}
+
 @media (max-width: 768px) {
   .instructions {
     padding: 15px;

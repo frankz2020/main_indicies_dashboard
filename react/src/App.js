@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Chart from './components/Chart';
 import './App.css'; 
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 function App() {
   const [tickers] = useState([
@@ -13,8 +15,39 @@ function App() {
     'CNY=X', 'HKDCNY=X', 'JPY=X'
   ]);
 
+  const printRef = useRef();
+
+  const handleDownloadPdf = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element, {
+      scrollY: -window.scrollY,
+      useCORS: true
+    });
+    const imgData = canvas.toDataURL('image/png');
+    
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'px',
+      format: [canvas.width, canvas.height]
+    });
+  
+    let pdfHeight = pdf.internal.pageSize.getHeight();
+    let pdfWidth = pdf.internal.pageSize.getWidth();
+    let totalHeight = canvas.height;
+    
+    for (let position = 0; position < totalHeight; position += pdfHeight) {
+      if (position !== 0) {
+        pdf.addPage();
+      }
+      pdf.addImage(imgData, 'PNG', 0, -position, pdfWidth, totalHeight);
+    }
+  
+    pdf.save('download.pdf');
+  };
+
   return (
-    <div>
+    <div ref={printRef}>
+
       <header className="app-header">
         <div className="header-content">
           <img src="logo.png" alt="Logo" className="logo" />
@@ -31,12 +64,17 @@ function App() {
           全部为非工作时间完成，更新较慢请谅解。如有问题或修改建议欢迎联系微信：frankz2020
         </p>
       </div>
-      
+
       <div className="chart-grid">
         {tickers.map(ticker => (
           <Chart key={ticker} ticker={ticker} />
         ))}
       </div>
+
+      <div className="button-container">
+        <button onClick={handleDownloadPdf} className="download-button">Download as PDF</button>
+      </div>
+
     </div>
   );
 }
