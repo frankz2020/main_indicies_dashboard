@@ -1,17 +1,31 @@
 .app-header {
+  text-align: center;
   background-color: #282c34;
   padding: 20px;
   color: white;
-  text-align: center;
   display: flex;
   flex-direction: column; /* Align items vertically */
   justify-content: center;
   align-items: center;
 }
 
+.header-content {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  justify-content: center; /* Centers the content horizontally */
+  gap: 20px; /* Space between logo and title */
+  /* Optional: Adjust the padding or margin as needed */
+}
+
+.header-content > div {
+  text-align: left; /* Left-aligns title and subtitle */
+}
+
 .logo {
-  height: 60px;
-  margin-bottom: 15px; /* Space below the logo */
+  /* Set a fixed size for the logo or other styling as needed */
+  width: 50px; /* Example size, adjust as needed */
+  height: auto;
+  margin-bottom: 0; /* Space below the logo */
 }
 
 .title {
@@ -20,15 +34,39 @@
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0; /* Remove default margin */
 }
-
-/* Continue with other styles */
 
 .chart-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   padding: 20px;
+}
+
+.instructions {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Example of a responsive design adjustment */
+@media (max-width: 768px) {
+  .instructions {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .header-content {
+    flex-direction: column; /* Stack logo and titles on smaller screens */
+  }
 }

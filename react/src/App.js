@@ -16,9 +16,13 @@ function App() {
   return (
     <div>
       <header className="app-header">
-        <img src="logo.png" alt="Logo" className="logo" /> {/* Update 'logo.png' to the path of your actual logo image */}
-        <h1 className="title">Market Dashboard</h1>
-        <h2 className="subtitle">by Frank Zhao</h2> {/* Subtitle added here */}
+        <div className="header-content">
+          <img src="logo.png" alt="Logo" className="logo" />
+          <div>
+            <h1 className="title">Market Dashboard</h1>
+            <h2 className="subtitle">by Frank Zhao</h2>
+          </div>
+        </div>
       </header>
 
       <div className="instructions">
