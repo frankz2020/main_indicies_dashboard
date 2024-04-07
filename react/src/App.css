@@ -1,0 +1,34 @@
+.app-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  margin-bottom: 15px; /* Space below the logo */
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0; /* Remove default margin */
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin: 0; /* Remove default margin */
+}
+
+/* Continue with other styles */
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}

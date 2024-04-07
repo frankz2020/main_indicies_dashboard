@@ -1,0 +1,23 @@
+.chart {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    max-width: calc((100vw / 3) - 60px); /* Responsive width for 3 charts in a row */
+    align-self: center;
+  }  
+  
+  .chart img {
+    width: 100%; 
+    height: auto;
+  }
+  
+  .chart-container {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .chart-metrics p {
+    margin: 5px 0; /* Spacing between each metric */
+    font-size: 0.9em; /* Adjust the font size as needed */
+    text-align: center; /* Center align text */
+  }
