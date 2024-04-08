@@ -94,4 +94,12 @@
   .header-content {
     flex-direction: column; /* Stack logo and titles on smaller screens */
   }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart {
+    max-width: 100%; /* Override the max-width for narrow screens */
+  }
 }
